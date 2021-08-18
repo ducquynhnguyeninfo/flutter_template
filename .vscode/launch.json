@@ -5,12 +5,23 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "flutter_template",
+            "name": "flutter_template dev",
             "request": "launch",
             "type": "dart",
             "args": [
                 "--flavor",
                 "develop"
+            ]
+
+        },
+        {
+            "name": "flutter_template prod",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor",
+                "production"
             ]
 
         },

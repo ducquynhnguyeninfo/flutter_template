@@ -1,0 +1,5 @@
+-ignorewarnings
+-keep class * {
+    public private *;
+}
+-keep class [com.example.flutter_template].BuildConfig { *; }

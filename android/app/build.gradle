@@ -47,7 +47,7 @@ android {
         targetSdkVersion 30
         versionCode project.env.get("VER_CODE").toInteger()
         versionName project.env.get("VER_NAME")
-        resValue "string", "build_config_package", "com.example.flutter_template" // mainifest package id, this must be the same as package paths
+        resValue "string", "build_config_package", "com.example.flutter_template" // mainifest package name, this must be the same as package paths
     }
 
     buildTypes {
@@ -55,9 +55,13 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
+            useProguard true
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro' 
+
         }
 
-        develop {
+        debug {
 
         }
     }
@@ -65,17 +69,19 @@ android {
     flavorDimensions "environment"
     productFlavors {
         develop {
-            dimension "environment"
+            dimension "environment" // flutter run --flavor develop
         }
 
         staging {
-            dimension "environment"
+            dimension "environment"  // flutter run --flavor staging
         }
 
         production {
-            dimension "environment"
+            dimension "environment" // flutter run --flavor production
         }
     }
+
+    
 }
 
 flutter {
